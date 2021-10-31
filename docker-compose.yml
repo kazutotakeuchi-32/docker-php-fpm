@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  php-sample1:
+    build: php/.
+  web1:
+    build: web/.
+    depends_on:
+      - php-sample1
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./php/src:/usr/share/nginx/html
